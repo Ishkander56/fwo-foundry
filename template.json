@@ -1,0 +1,332 @@
+{
+	"Actor": {
+		"types": ["character", "enemy"],
+		"templates": {
+			"pc": {
+				"mainhand": "None",
+				"offhand": "None",
+				"armor": "None",
+				"accessory": ["None", "None"],
+				"traits": ["None", "None", "None", "None", "None"],
+				"pet": "None",
+				"house": "None",
+				"invsize": 10,
+				"gp": 0,
+				"coupons": 0,
+				"stamps": 0,
+				"class": {
+					"main": {
+						"name": "Warrior", 
+						"level": 1
+					}, 
+					"sub": {
+						"name": "None", 
+						"level": 0
+					}, 
+					"master": {
+						"name": "None", 
+						"level": 0
+					},
+					"total": 1
+				},
+				"fortune": {
+					"current": 1,
+					"skill": 0,
+					"trait": 0,
+					"item": 0,
+					"misc": 0,
+					"temp": 0
+				}
+			},
+			"enemy": {
+				"class": {
+					"main": {
+						"name": "Enemy", 
+						"level": 1
+					},
+					"total": 1
+				}
+			},
+			"base": {
+				"ability": {
+					"str": {
+						"base": 10,
+						"bonus": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"agi": {
+						"base": 10,
+						"bonus": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"sen": {
+						"base": 10,
+						"bonus": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"int": {
+						"base": 10,
+						"bonus": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"will": {
+						"base": 10,
+						"bonus": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					}
+				},
+				"derived": {
+					"hp": {
+						"value": 34,
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0,
+						"max": 34
+					},
+					"fp": {
+						"value": 12,
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0,
+						"max": 12
+					},
+					"acc": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"eva": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"mov": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"init": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"res": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					}
+				},
+				"defense": {
+					"bash": {
+						"armor": 0, 
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"slash": {
+						"armor": 0, 
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"stab": {
+						"armor": 0, 
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"fire": {
+						"armor": 0, 
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"cold": {
+						"armor": 0, 
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"shock": {
+						"armor": 0, 
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					}
+				},
+				"biography": ""
+			},
+			"accs": {
+				"derived": {
+					"knife": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"sword": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"lance": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"axe": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"blunt": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"whip": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"bow": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"hand": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"katana": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"gun": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"magic": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					}
+				}
+			}, 
+			"evas": {
+				"derived": {
+					"dodge": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"parry": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					},
+					"shield": {
+						"skill": 0,
+						"trait": 0,
+						"item": 0,
+						"misc": 0,
+						"temp": 0
+					}
+				}
+			}
+		},
+		"character": {
+			"templates": ["base", "pc", "accs", "evas"]
+		},
+		"enemy": {
+			"templates": ["base", "enemy", "evas"]
+		}
+	},
+	"Item": {
+		"types": ["item", "feature", "skill"],
+		"templates": {
+			"base": {
+				"description": "",
+				"summary": ""
+			}
+		},
+		"item": {
+			"templates": ["base"],
+			"weight": 1,
+			"value": 0,
+			"formula": "3d6ms<10"
+		},
+		"feature": {
+		  "templates": ["base"],
+		  "skillLevel": 1
+		},
+		"skill": {
+			"templates": ["base"],
+			"formula": "3d6ms<10",
+			"skillLevel": 1
+		}
+	}
+}

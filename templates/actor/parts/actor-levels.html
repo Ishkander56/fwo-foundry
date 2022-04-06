@@ -1,0 +1,31 @@
+<table class="class-table">
+	<thead>
+		<tr>
+			<th>Class Name</th>
+			<th>Levels</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each data.class as |class id|}}
+			{{#unless @last}}
+			<tr class="class {{id}}-class">
+				<td>
+					<input type="text" name="data.class.{{id}}.name" value="{{class.name}}" data-dtype="String" />
+				</td>
+				<td>
+					<input type="text" name="data.class.{{id}}.level" value="{{class.level}}" data-dtype="Number" />
+				</td>
+			</tr>
+			{{/unless}}
+		{{/each}}
+		<tr class="class class-total">
+			<td>
+				<label for="data.cl" class="resource-label">Total CL</label>
+			</td>
+			<td>
+				<input readonly type="text" name="data.class.total" value="{{data.class.total}}" data-dtype="Number" />
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,70 @@
+<table class="derived-table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Base</th>
+			<th>Skill</th>
+			<th>Trait</th>
+			<th>Item</th>
+			<th>Misc</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each data.derived as |ability id|}}
+		<tr class="ability" data-ability="{{id}}">
+			<td>
+				<label for="data.derived.{{id}}.value" class="resource-label">{{id}}</label>
+			</td>
+			<td>
+				<input readonly type="text" name="data.derived.{{id}}.base" value="{{ability.base}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.derived.{{id}}.skill" value="{{ability.skill}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.derived.{{id}}.trait" value="{{ability.trait}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.derived.{{id}}.item" value="{{ability.item}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.derived.{{id}}.misc" value="{{ability.misc}}" data-dtype="Number" />
+			</td>
+			{{#if max}}
+				<td>
+					<input readonly type="text" name="data.derived.{{id}}.max" value="{{ability.max}}" data-dtype="Number" />
+				</td>
+			{{else}}
+				<td>
+					<input readonly type="text" name="data.derived.{{id}}.value" value="{{ability.value}}" data-dtype="Number" class="rollable" data-roll="3d6ms<@derived.{{id}}.value" data-label="{{id}}"/>
+				</td>
+			{{/if}}
+		</tr>
+		{{/each}}
+		<tr class="ability" data-ability="fortune">
+			<td>
+				<label for="data.fortune.value" class="resource-label">fortune</label>
+			</td>
+			<td>
+				<input readonly type="text" name="data.fortune.base" value="{{data.fortune.base}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.fortune.skill" value="{{data.fortune.skill}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.fortune.trait" value="{{data.fortune.trait}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.fortune.item" value="{{data.fortune.item}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.fortune.misc" value="{{data.fortune.misc}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input readonly type="text" name="data.fortune.max" value="{{data.fortune.max}}" data-dtype="Number" />
+			</td>
+		</tr>
+	</tbody>
+</table>

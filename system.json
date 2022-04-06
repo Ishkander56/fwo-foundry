@@ -1,0 +1,33 @@
+{
+	"name": "fwo",
+	"title": "Filled With Online",
+	"description": "The Filled With Online system for FoundryVTT!",
+	"version": "0.3.0",
+	"minimumCoreVersion": "0.8.5",
+	"compatibleCoreVersion": "0.8.6",
+	"authors": ["Ishkander"],
+	"esmodules": ["module/fwo.mjs"],
+	"styles": ["css/fwo.css"],
+	"scripts": [],
+	"packs": [],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		},
+		{
+			"lang": "jp",
+			"name": "日本語",
+			"path": "lang/jp.json"
+		}
+	],
+	"gridDistance": 1,
+	"gridUnits": "hex",
+	"primaryTokenAttribute": "hp",
+	"secondaryTokenAttribute": "fp",
+	"url": "",
+	"manifest": "",
+	"download": "",
+	"license": "LICENSE.txt"
+}

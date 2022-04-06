@@ -1,0 +1,29 @@
+<table class="ability-table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Base</th>
+			<th>Misc</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each data.ability as |ability id|}}
+		<tr class="ability" data-ability="{{id}}">
+			<td>
+				<label for="data.ability.{{id}}.value" class="resource-label">{{id}}</label>
+			</td>
+			<td>
+				<input type="text" name="data.ability.{{id}}.base" value="{{ability.base}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.ability.{{id}}.misc" value="{{ability.misc}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input readonly type="text" name="data.ability.{{id}}.value" value="{{ability.value}}" data-dtype="Number" class="rollable" data-roll="3d6ms<@ability.{{id}}.value" data-label="{{id}}"/>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

@@ -1,0 +1,52 @@
+<div class="grid grid-5col">
+	{{#each data.ability as |ability id|}}
+	<div class="ability" data-ability="{{id}}">
+		<label for="data.ability.{{id}}.value" class="resource-label flex-group-center">{{id}}</label>
+		<div class="flexrow flex-group-center">
+			<input type="text" name="data.ability.{{id}}.base" value="{{ability.base}}" data-dtype="Number" />
+			<span> + </span>
+			<input type="text" name="data.ability.{{id}}.misc" value="{{ability.misc}}" data-dtype="Number" />
+			<span> = </span>
+			{{#if max}}
+				<input readonly type="text" name="data.ability.{{id}}.max" value="{{ability.max}}" data-dtype="Number" />
+			{{else}}
+				<input readonly type="text" name="data.ability.{{id}}.value" value="{{ability.value}}" data-dtype="Number" class="rollable" data-roll="3d6ms<@ability.{{id}}.value" data-label="{{id}}"/>
+			{{/if}}
+		</div>
+	</div>
+	{{/each}}
+</div>
+<hr>
+<div class="grid grid-5col">
+	{{#each data.derived as |ability id|}}
+	<div class="ability" data-ability="{{id}}">
+		<label for="data.derived.{{id}}.value" class="resource-label flex-group-center">{{id}}</label>
+		<div class="flexrow flex-group-center">
+			<input readonly type="text" name="data.derived.{{id}}.base" value="{{ability.base}}" data-dtype="Number" />
+			<span> + </span>
+			<input type="text" name="data.derived.{{id}}.misc" value="{{ability.misc}}" data-dtype="Number" />
+			<span> = </span>
+		{{#if max}}
+			<input readonly type="text" name="data.derived.{{id}}.max" value="{{ability.max}}" data-dtype="Number" />
+		{{else}}
+			<input readonly type="text" name="data.derived.{{id}}.value" value="{{ability.value}}" data-dtype="Number" class="rollable" data-roll="3d6ms<@derived.{{id}}.value" data-label="{{id}}"/>
+		{{/if}}
+		</div>
+	</div>
+	{{/each}}
+</div>
+<hr>
+<div class="grid grid-3col">
+	{{#each data.defense as |defense id|}}
+	<div class="defense" data-defense="{{id}}">
+		<label for="data.defense.{{id}}.value" class="resource-label flex-group-center">{{id}}</label>
+		<div class="flexrow flex-group-center">
+			<input type="text" name="data.defense.{{id}}.armor" value="{{defense.armor}}" data-dtype="Number" />
+			<span> + </span>
+			<input type="text" name="data.defense.{{id}}.misc" value="{{defense.misc}}" data-dtype="Number" />
+			<span> = </span>
+			<input readonly type="text" name="data.defense.{{id}}.max" value="{{defense.value}}" data-dtype="Number" />
+		</div>
+	</div>
+	{{/each}}
+</div>

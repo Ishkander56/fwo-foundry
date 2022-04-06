@@ -1,0 +1,29 @@
+<table class="defense-table">
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Armor</th>
+			<th>Misc</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each data.defense as |defense id|}}
+		<tr class="defense" data-defense="{{id}}">
+			<td>
+				<label for="data.defense.{{id}}.value" class="resource-label">{{id}}</label>
+			</td>
+			<td>
+				<input type="text" name="data.defense.{{id}}.armor" value="{{defense.armor}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input type="text" name="data.defense.{{id}}.misc" value="{{defense.misc}}" data-dtype="Number" />
+			</td>
+			<td>
+				<input readonly type="text" name="data.defense.{{id}}.value" value="{{defense.value}}" data-dtype="Number" />
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
