@@ -10,6 +10,25 @@
   "FWO.TabSkills": "Skills",
   "FWO.TabEffects": "Effects",
   
+  "FWO.HeaderTraits": "Traits/Features",
+  "FWO.HeaderInventory": "Adventuring Bag",
+  "FWO.HeaderSkills": "Skills",
+  "FWO.HeaderEffectsTemporary": "Temporary Effects",
+  "FWO.HeaderEffectsPassive": "Passive Effects",
+  "FWO.HeaderEffectsInactive": "Inactive Effects",
+  "FWO.HeaderEffectsSource": "Source",
+  "FWO.HeaderEffectsDuration": "Duration",
+  
+  "FWO.HeaderItemDescription": "Description",
+  "FWO.HeaderItemAttributes": "Attributes",
+  
+  "FWO.ItemPrice": "Price",
+  "FWO.ItemWeightQuantity": "Weight/Quantity",
+  "FWO.ItemSkillLevel": "Skill Level",
+  "FWO.ItemDescription": "Description",
+  "FWO.ItemSummary": "Summary",
+  "FWO.ItemRollFormula": "Roll Formula",
+  
   "FWO.Add": "Add",
   
   "FWO.Str": "STR",
@@ -37,6 +56,23 @@
   "FWO.InitLong": "Initiative",
   "FWO.Res": "RES",
   "FWO.ResLong": "Resistance",
+  "FWO.Fortune": "FT",
+  "FWO.FortuneLong": "Fortune",
+  
+  "FWO.AccKnife": "Knife",
+  "FWO.AccSword": "Sword",
+  "FWO.AccLance": "Lance",
+  "FWO.AccAxe": "Axe",
+  "FWO.AccBlunt": "Blunt",
+  "FWO.AccWhip": "Whip",
+  "FWO.AccBow": "Bow",
+  "FWO.AccHand": "Fist-Load",
+  "FWO.AccKatana": "Katana",
+  "FWO.AccGun": "Gun",
+  "FWO.AccSpecial": "Special",
+  "FWO.EvaDodge": "Dodge",
+  "FWO.EvaShield": "Shield",
+  "FWO.EvaParry": "Parry",
   
   "FWO.DefBash": "Bash",
   "FWO.DefSlash": "Slash",
@@ -48,6 +84,7 @@
   "FWO.DefTypeless": "Typeless",
   
   "FWO.StatName": "Name",
+  "FWO.StatDefType": "Type",
   "FWO.StatBase": "Base",
   "FWO.StatBonus": "Bonus",
   "FWO.StatTrait": "Trait",
@@ -58,5 +95,21 @@
   
   "FWO.ClassName": "Class Name",
   "FWO.ClassLevel": "Level",
-  "FWO.TotalLevel": "CL"
+  "FWO.TotalLevel": "CL",
+  
+  "FWO.StatusUnbalanced": "Unbalanced",
+  "FWO.StatusDowned": "Downed",
+  "FWO.StatusDarkness": "Darknness",
+  "FWO.StatusSleep": "Sleep",
+  "FWO.StatusParalysis": "Paralysis",
+  "FWO.StatusSealed": "Sealed",
+  "FWO.StatusPetrified": "Petrified",
+  "FWO.StatusFrozen": "Frozen",
+  "FWO.StatusStasis": "Stasis",
+  "FWO.StatusUnconscious": "Unconscious",
+  "FWO.StatusDead": "Dead",
+  "FWO.StatusFear": "Fear",
+  "FWO.StatusHeartburn": "Heartburn",
+  "FWO.StatusBranded": "Branded",
+  "FWO.StatusDrowning": "Waterlogged"
 }
