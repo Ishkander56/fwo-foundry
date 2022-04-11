@@ -8,6 +8,7 @@
   "FWO.TabDescription": "説明",
   "FWO.TabItems": "アイテム",
   "FWO.TabSkills": "スキル",
+  "FWO.TabItemsSkills": "アイテム・スキル",
   "FWO.TabEffects": "効果",
   
   "FWO.HeaderTraits": "特異点・特徴",
@@ -22,14 +23,26 @@
   "FWO.HeaderItemDescription": "解説",
   "FWO.HeaderItemAttributes": "特性",
   
+  "FWO.ItemName": "名称",
   "FWO.ItemPrice": "価格",
   "FWO.ItemWeightQuantity": "重量・数量",
   "FWO.ItemSkillLevel": "ＳＬｖ",
   "FWO.ItemDescription": "解説",
-  "FWO.ItemSummary": "概要",
+  "FWO.ItemSummary": "チャット概要",
   "FWO.ItemRollFormula": "ダイス式",
   
+  "FWO.QuickCheck": "判定する",
+  "FWO.QuickDamage": "ダメージ計算",
+  
   "FWO.Add": "追加",
+  "FWO.IncreaseWeightQuantity": "重量・数量を増加",
+  "FWO.DecreaseWeightQuantity": "重量・数量を減少",
+  "FWO.Edit": "変更",
+  "FWO.Delete": "削除",
+  "FWO.ToggleCD": "ＣＤ切替",
+  
+  "FWO.Margin": "成功度",
+  "FWO.MarginLong": "成功度",
   
   "FWO.Str": "体力",
   "FWO.StrLong": "体力",
@@ -69,7 +82,7 @@
   "FWO.AccHand": "命中（格闘）",
   "FWO.AccKatana": "命中（刀）",
   "FWO.AccGun": "命中（銃）",
-  "FWO.AccSpecial": "命中（特殊）",
+  "FWO.AccMagic": "命中（魔法）",
   "FWO.EvaDodge": "ドッジ",
   "FWO.EvaShield": "シールド",
   "FWO.EvaParry": "パリイ",
@@ -87,6 +100,7 @@
   "FWO.StatDefType": "防護点",
   "FWO.StatBase": "初期",
   "FWO.StatBonus": "ボーナス",
+  "FWO.StatSkill": "スキル",
   "FWO.StatTrait": "特異点",
   "FWO.StatItem": "アイテム",
   "FWO.StatArmor": "鎧",
@@ -111,5 +125,9 @@
   "FWO.StatusFear": "☆恐怖",
   "FWO.StatusHeartburn": "☆胸やけ",
   "FWO.StatusBranded": "☆刻印",
-  "FWO.StatusDrowning": "☆溺れ"
+  "FWO.StatusDrowning": "☆溺れ",
+  
+  "FWO.ResourceGP": "ＧＰ",
+  "FWO.ResourceAttachmentCoupons": "アタッチメント券",
+  "FWO.ResourceGMStamps": "ＧＭスタンプ"
 }

@@ -1,9 +1,9 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
-    <div class="item-name">Name</div>
-    <div class="item-formula">Roll Formula</div>
+    <div class="item-name">{{localize 'FWO.ItemName'}}</div>
+    <div class="item-formula">{{localize 'FWO.ItemRollFormula'}}</div>
     <div class="item-controls">
-      <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
+      <a class="item-control item-create" title="{{localize 'FWO.Add'}}" data-type="item"><i class="fas fa-plus"></i> {{localize 'FWO.Add'}}</a>
     </div>
   </li>
   {{#each gear as |item id|}}
@@ -17,8 +17,8 @@
       {{log item}}
       <div class="item-formula item-prop">{{item.data.formula}}</div>
       <div class="item-controls">
-        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        <a class="item-control item-edit" title="{{localize 'FWO.Edit'}}"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="{{localize 'FWO.Delete'}}"><i class="fas fa-trash"></i></a>
       </div>
     </li>
   {{/each}}

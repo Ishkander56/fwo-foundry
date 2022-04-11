@@ -1,13 +1,13 @@
 <table class="derived-table">
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Base</th>
-			<th>Skill</th>
-			<th>Trait</th>
-			<th>Item</th>
-			<th>Misc</th>
-			<th>Total</th>
+			<th>{{localize 'FWO.StatName'}}</th>
+			<th>{{localize 'FWO.StatBase'}}</th>
+			<th>{{localize 'FWO.StatSkill'}}</th>
+			<th>{{localize 'FWO.StatTrait'}}</th>
+			<th>{{localize 'FWO.StatItem'}}</th>
+			<th>{{localize 'FWO.StatMisc'}}</th>
+			<th>{{localize 'FWO.StatTotal'}}</th>
 		</tr>
 	</thead>
 
@@ -15,7 +15,7 @@
 		{{#each data.derived as |ability id|}}
 		<tr class="ability" data-ability="{{id}}">
 			<td>
-				<label for="data.derived.{{id}}.value" class="resource-label">{{id}}</label>
+				<label for="data.derived.{{id}}.value" class="resource-label">{{ability.label}}</label>
 			</td>
 			<td>
 				<input readonly type="text" name="data.derived.{{id}}.base" value="{{ability.base}}" data-dtype="Number" />
@@ -45,7 +45,7 @@
 		{{/each}}
 		<tr class="ability" data-ability="fortune">
 			<td>
-				<label for="data.fortune.value" class="resource-label">fortune</label>
+				<label for="data.fortune.value" class="resource-label">{{localize 'FWO.Fortune'}}</label>
 			</td>
 			<td>
 				<input readonly type="text" name="data.fortune.base" value="{{data.fortune.base}}" data-dtype="Number" />

@@ -1,13 +1,13 @@
 <table class="ability-table">
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Base</th>
-			<th>Bonus</th>
-			<th>Trait</th>
-			<th>Item</th>
-			<th>Misc</th>
-			<th>Total</th>
+			<th>{{localize 'FWO.StatName'}}</th>
+			<th>{{localize 'FWO.StatBase'}}</th>
+			<th>{{localize 'FWO.StatBonus'}}</th>
+			<th>{{localize 'FWO.StatTrait'}}</th>
+			<th>{{localize 'FWO.StatItem'}}</th>
+			<th>{{localize 'FWO.StatMisc'}}</th>
+			<th>{{localize 'FWO.StatTotal'}}</th>
 		</tr>
 	</thead>
 
@@ -15,7 +15,7 @@
 		{{#each data.ability as |ability id|}}
 		<tr class="ability" data-ability="{{id}}">
 			<td>
-				<label for="data.ability.{{id}}.value" class="resource-label">{{id}}</label>
+				<label for="data.ability.{{id}}.value" class="resource-label">{{ability.label}}</label>
 			</td>
 			<td>
 				<input type="text" name="data.ability.{{id}}.base" value="{{ability.base}}" data-dtype="Number" />

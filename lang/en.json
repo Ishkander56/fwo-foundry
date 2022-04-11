@@ -8,6 +8,7 @@
   "FWO.TabDescription": "Description",
   "FWO.TabItems": "Items",
   "FWO.TabSkills": "Skills",
+  "FWO.TabItemsSkills": "Items/Skills",
   "FWO.TabEffects": "Effects",
   
   "FWO.HeaderTraits": "Traits/Features",
@@ -22,14 +23,26 @@
   "FWO.HeaderItemDescription": "Description",
   "FWO.HeaderItemAttributes": "Attributes",
   
+  "FWO.ItemName": "Name",
   "FWO.ItemPrice": "Price",
   "FWO.ItemWeightQuantity": "Weight/Quantity",
   "FWO.ItemSkillLevel": "Skill Level",
   "FWO.ItemDescription": "Description",
-  "FWO.ItemSummary": "Summary",
+  "FWO.ItemSummary": "Chat Summary",
   "FWO.ItemRollFormula": "Roll Formula",
   
+  "FWO.QuickCheck": "Roll Check",
+  "FWO.QuickDamage": "Damage Calc.",
+  
   "FWO.Add": "Add",
+  "FWO.IncreaseWeightQuantity": "Increase Weight/Quantity",
+  "FWO.DecreaseWeightQuantity": "Decrease Weight/Quantity",
+  "FWO.Edit": "Edit",
+  "FWO.Delete": "Delete",
+  "FWO.ToggleCD": "Toggle CD",
+  
+  "FWO.Margin": "MS",
+  "FWO.MarginLong": "Margin of Success",
   
   "FWO.Str": "STR",
   "FWO.StrLong": "Strength",
@@ -69,7 +82,7 @@
   "FWO.AccHand": "Fist-Load",
   "FWO.AccKatana": "Katana",
   "FWO.AccGun": "Gun",
-  "FWO.AccSpecial": "Special",
+  "FWO.AccMagic": "Magic",
   "FWO.EvaDodge": "Dodge",
   "FWO.EvaShield": "Shield",
   "FWO.EvaParry": "Parry",
@@ -87,13 +100,14 @@
   "FWO.StatDefType": "Type",
   "FWO.StatBase": "Base",
   "FWO.StatBonus": "Bonus",
+  "FWO.StatSkill": "Skill",
   "FWO.StatTrait": "Trait",
   "FWO.StatItem": "Item",
   "FWO.StatArmor": "Armor",
   "FWO.StatMisc": "Misc",
   "FWO.StatTotal": "Total",
   
-  "FWO.ClassName": "Class Name",
+  "FWO.ClassName": "Class",
   "FWO.ClassLevel": "Level",
   "FWO.TotalLevel": "CL",
   
@@ -111,5 +125,9 @@
   "FWO.StatusFear": "Fear",
   "FWO.StatusHeartburn": "Heartburn",
   "FWO.StatusBranded": "Branded",
-  "FWO.StatusDrowning": "Waterlogged"
+  "FWO.StatusDrowning": "Waterlogged",
+  
+  "FWO.ResourceGP": "GP",
+  "FWO.ResourceAttachmentCoupons": "Attachment Coupons",
+  "FWO.ResourceGMStamps": "GM Stamps"
 }

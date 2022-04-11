@@ -1,8 +1,8 @@
 <table class="class-table">
 	<thead>
 		<tr>
-			<th>Class Name</th>
-			<th>Levels</th>
+			<th>{{localize 'FWO.ClassName'}}</th>
+			<th>{{localize 'FWO.ClassLevel'}}</th>
 		</tr>
 	</thead>
 
@@ -21,7 +21,7 @@
 		{{/each}}
 		<tr class="class class-total">
 			<td>
-				<label for="data.cl" class="resource-label">Total CL</label>
+				<label for="data.cl" class="resource-label">{{localize 'FWO.TotalLevel'}}</label>
 			</td>
 			<td>
 				<input readonly type="text" name="data.class.total" value="{{data.class.total}}" data-dtype="Number" />

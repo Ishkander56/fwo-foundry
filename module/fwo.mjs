@@ -58,6 +58,46 @@ Hooks.once('init', async function() {
 	{"id":"brand","label":"FWO.StatusBranded","icon":"icons/svg/target.svg"},
 	{"id":"drown","label":"FWO.StatusDrowning","icon":"icons/svg/waterfall.svg"}
   ];
+  
+  CONFIG.statStrings = {
+    "str": "FWO.Str",
+    "agi": "FWO.Agi",
+    "sen": "FWO.Sen",
+    "int": "FWO.Int",
+    "will": "FWO.Will",
+    
+    "hp": "FWO.HP",
+    "fp": "FWO.FP",
+    "acc": "FWO.Acc",
+    "eva": "FWO.Eva",
+    "mov": "FWO.Mov",
+    "init": "FWO.Init",
+    "res": "FWO.Res",
+    "fortune": "FWO.Fortune",
+    
+    "bash": "FWO.DefBash",
+    "slash": "FWO.DefSlash",
+    "stab": "FWO.DefStab",
+    "fire": "FWO.DefFire",
+    "cold": "FWO.DefCold",
+    "shock": "FWO.DefShock",
+    
+    "knife": "FWO.AccKnife",
+    "sword": "FWO.AccSword",
+    "lance": "FWO.AccLance",
+    "axe": "FWO.AccAxe",
+    "blunt": "FWO.AccBlunt",
+    "whip": "FWO.AccWhip",
+    "bow": "FWO.AccBow",
+    "hand": "FWO.AccHand",
+    "katana": "FWO.AccKatana",
+    "gun": "FWO.AccGun",
+    "magic": "FWO.AccMagic",
+    
+    "dodge": "FWO.EvaDodge",
+    "shield": "FWO.EvaShield",
+    "parry": "FWO.EvaParry"
+  }
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -122,6 +162,17 @@ Handlebars.registerHelper('times', function(times, options) {
     outStr += options.fn();
   }
   return outStr
+});
+
+/* -------------------------------------------- */
+/*  Init Hook                                   */
+/* -------------------------------------------- */
+
+Hooks.once('init', async function () {
+  let src = 'systems/fwo/img/fwo.webp'
+
+  $('#logo').attr('src', src)
+  $('#logo').attr('height', '10px')
 });
 
 /* -------------------------------------------- */

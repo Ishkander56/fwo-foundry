@@ -1,9 +1,9 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
-    <div class="item-name">Name</div>
-    <div class="item-formula">Roll Formula</div>
+    <div class="item-name">{{localize 'FWO.ItemName'}}</div>
+    <div class="item-formula">{{localize 'FWO.ItemRollFormula'}}</div>
     <div class="item-controls">
-      <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
+      <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> {{localize 'FWO.Add'}}</a>
     </div>
   </li>
   {{#each gear as |item id|}}
@@ -27,7 +27,7 @@
   {{/each}}
 </ol>
 <div class="item flexrow items-header">
-  <div>Adventuring Bag Storage</div>
+  <div>{{localize 'FWO.HeaderInventory'}}</div>
 </div>
 <ul class="grid grid-5col items-list">
   {{#each gear as |item id|}}
@@ -40,10 +40,10 @@
         <h4 style="white-space:initial;">{{item.name}}</h4>
       </div>
 	  <div class="item-controls">
-		<a class="item-control item-increase" title="Increase Weight/Quantity"><i class="fas fa-plus-square"></i></a>
-		<a class="item-control item-decrease" title="Decrease Weight/Quantity"><i class="fas fa-minus-square"></i></a>
-        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+		<a class="item-control item-increase" title="{{localize 'FWO.IncreaseWeightQuantity'}}"><i class="fas fa-plus-square"></i></a>
+		<a class="item-control item-decrease" title="{{localize 'FWO.DecreaseWeightQuantity'}}"><i class="fas fa-minus-square"></i></a>
+        <a class="item-control item-edit" title="{{localize 'FWO.Edit'}}"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="{{localize 'FWO.Delete'}}"><i class="fas fa-trash"></i></a>
       </div>
     </li>
 	{{/times}}

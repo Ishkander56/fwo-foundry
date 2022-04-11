@@ -55,7 +55,18 @@ export class FilledWithActorSheet extends ActorSheet {
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(this.actor.effects);
-
+    
+    // Fetch Localization terms for ability scores, derived scores, etc.
+    for (let [key, abil] of Object.entries(context.data.ability)){
+    	abil.label = game.i18n.localize(CONFIG.statStrings[key])
+  	}
+  	for (let [key, abil] of Object.entries(context.data.derived)){
+    	abil.label = game.i18n.localize(CONFIG.statStrings[key])
+  	}
+  	for (let [key, abil] of Object.entries(context.data.defense)){
+    	abil.label = game.i18n.localize(CONFIG.statStrings[key])
+  	}
+	
     return context;
   }
 
