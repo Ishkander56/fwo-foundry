@@ -17,9 +17,9 @@
 			"path": "lang/en.json"
 		},
 		{
-			"lang": "jp",
+			"lang": "ja",
 			"name": "日本語",
-			"path": "lang/jp.json"
+			"path": "lang/ja.json"
 		}
 	],
 	"gridDistance": 1,

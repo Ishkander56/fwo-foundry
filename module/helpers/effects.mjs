@@ -37,17 +37,17 @@ export function prepareActiveEffectCategories(effects) {
     const categories = {
       temporary: {
         type: "temporary",
-        label: "Temporary Effects",
+        label: game.i18n.localize("FWO.HeaderEffectsTemporary"),
         effects: []
       },
       passive: {
         type: "passive",
-        label: "Passive Effects",
+        label: game.i18n.localize("FWO.HeaderEffectsPassive"),
         effects: []
       },
       inactive: {
         type: "inactive",
-        label: "Inactive Effects",
+        label: game.i18n.localize("FWO.HeaderEffectsInactive"),
         effects: []
       }
     };

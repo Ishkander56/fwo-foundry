@@ -15,7 +15,7 @@
   "FWO.HeaderInventory": "冒険かばん",
   "FWO.HeaderSkills": "スキル",
   "FWO.HeaderEffectsTemporary": "一時効果",
-  "FWO.HeaderEffectsPassive": "パッシブ効果",
+  "FWO.HeaderEffectsPassive": "常時効果",
   "FWO.HeaderEffectsInactive": "不活性効果",
   "FWO.HeaderEffectsSource": "元",
   "FWO.HeaderEffectsDuration": "間",
