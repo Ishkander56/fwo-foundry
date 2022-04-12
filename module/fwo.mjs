@@ -169,7 +169,7 @@ Handlebars.registerHelper('times', function(times, options) {
 /* -------------------------------------------- */
 
 Hooks.once('init', async function () {
-  let src = 'systems/fwo/img/fwo.webp'
+  let src = 'systems/fwo-foundry/img/fwo.webp'
 
   $('#logo').attr('src', src)
   $('#logo').attr('height', '10px')

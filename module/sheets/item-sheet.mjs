@@ -16,7 +16,7 @@ export class FilledWithItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/fwo/templates/item";
+    const path = "systems/fwo-foundry/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 

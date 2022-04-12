@@ -10,7 +10,7 @@ export class FilledWithActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["fwo", "sheet", "actor"],
-      template: "systems/fwo/templates/actor/actor-sheet.html",
+      template: "systems/fwo-foundry/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
@@ -19,7 +19,7 @@ export class FilledWithActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/fwo/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/fwo-foundry/templates/actor/actor-${this.actor.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */

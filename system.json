@@ -1,8 +1,8 @@
 {
-	"name": "fwo",
+	"name": "fwo-foundry",
 	"title": "Filled With Online",
 	"description": "The Filled With Online system for FoundryVTT!",
-	"version": "0.4.0",
+	"version": "0.4.2",
 	"minimumCoreVersion": "0.8.6",
 	"compatibleCoreVersion": "9",
 	"authors": ["Ishkander"],
@@ -26,8 +26,8 @@
 	"gridUnits": "hex",
 	"primaryTokenAttribute": "hp",
 	"secondaryTokenAttribute": "fp",
-	"url": "",
-	"manifest": "",
-	"download": "",
+	"url": "https://github.com/Ishkander56/fwo-foundry",
+	"manifest": "https://raw.githubusercontent.com/Ishkander56/fwo-foundry/main/system.json",
+	"download": "https://github.com/Ishkander56/fwo-foundry/archive/refs/heads/main.zip",
 	"license": "LICENSE.txt"
 }
