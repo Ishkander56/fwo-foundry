@@ -6,6 +6,7 @@ import { FilledWithActorSheet } from "./sheets/actor-sheet.mjs";
 import { FilledWithItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
+import * as FilledWithTools from "./helpers/tools.mjs";
 import { FWO } from "./helpers/config.mjs";
 
 /* -------------------------------------------- */
@@ -107,6 +108,32 @@ Hooks.once('init', async function() {
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
+});
+
+/* -------------------------------------------- */
+/*  Control Buttons                             */
+/* -------------------------------------------- */
+
+Hooks.on('getSceneControlButtons', (buttons) => {
+  if (!canvas) return;
+  let group = buttons.find((b) => b.name === 'token');
+  group.tools.push({
+    button: true,
+    icon: 'fas fa-dice',
+    name: 'quickCheck',
+    title: game.i18n.localize("FWO.QuickCheck"),
+    onClick: () => {
+      FilledWithTools.rollCheck(canvas.tokens.controlled[0].actor)
+    },
+  },{
+    button: true,
+    icon: 'fas fa-calculator',
+    name: 'quickDamage',
+    title: game.i18n.localize("FWO.QuickDamage"),
+    onClick: () => {
+      FilledWithTools.calculateDamage(canvas.tokens.controlled[0].actor)
+    },
+  });
 });
 
 /* -------------------------------------------- */

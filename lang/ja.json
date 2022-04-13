@@ -33,6 +33,8 @@
   
   "FWO.QuickCheck": "判定する",
   "FWO.QuickDamage": "ダメージ計算",
+  "FWO.QuickDamageResult": "{{name}}が{{final}}「{{types}}」を受けた。",
+  "FWO.QuickDamageJoiner": "」「",
   
   "FWO.Add": "追加",
   "FWO.IncreaseWeightQuantity": "重量・数量を増加",

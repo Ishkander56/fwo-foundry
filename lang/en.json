@@ -33,6 +33,8 @@
   
   "FWO.QuickCheck": "Roll Check",
   "FWO.QuickDamage": "Damage Calc.",
+  "FWO.QuickDamageResult": "{{name}} took {{final}} {{types}} damage.",
+  "FWO.QuickDamageJoiner": "/",
   
   "FWO.Add": "Add",
   "FWO.IncreaseWeightQuantity": "Increase Weight/Quantity",
