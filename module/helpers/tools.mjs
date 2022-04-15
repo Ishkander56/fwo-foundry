@@ -76,22 +76,20 @@ export function calculateDamage(actor, targets) {
     return
   }
 
-  var rd = actor.data.data.defense;
-
   const values = [
-	{"name": game.i18n.localize("FWO.DefBash"), "value": rd["bash"].value},
-	{"name": game.i18n.localize("FWO.DefSlash"), "value": rd["slash"].value},
-	{"name": game.i18n.localize("FWO.DefStab"), "value": rd["stab"].value},
-	{"name": game.i18n.localize("FWO.DefFire"), "value": rd["fire"].value},
-	{"name": game.i18n.localize("FWO.DefCold"), "value": rd["cold"].value},
-	{"name": game.i18n.localize("FWO.DefShock"), "value": rd["shock"].value},
-	{"name": game.i18n.localize("FWO.DefIgnore"), "value": 0}
+	{"label": game.i18n.localize("FWO.DefBash"), "type": "bash"},
+	{"label": game.i18n.localize("FWO.DefSlash"), "type": "slash"},
+	{"label": game.i18n.localize("FWO.DefStab"), "type": "stab"},
+	{"label": game.i18n.localize("FWO.DefFire"), "type": "fire"},
+	{"label": game.i18n.localize("FWO.DefCold"), "type": "cold"},
+	{"label": game.i18n.localize("FWO.DefShock"), "type": "shock"},
+	{"label": game.i18n.localize("FWO.DefIgnore"), "type": null}
   ];
   const total = 0;
 
   let content = `<form><label>Damage</label><input type="number" name="resultDamage" data-result="damage" /><br/>`
   for(let r of values) {
-    content += `<label>${r.name}</label><input type="checkbox" name="resultPick" data-type-name="${r.name}" data-result="${r.value}" /><br/>`;
+    content += `<label>${r.label}</label><input type="checkbox" name="resultPick" data-label="${r.label}" data-type="${r.type}" /><br/>`;
   }
   content += "</div></form>";
 
@@ -104,13 +102,14 @@ export function calculateDamage(actor, targets) {
 	    if (targets.length == 0) {
           let pickedChoices = html.find("input[name='resultPick']:checked");
           let damageBase = html.find("input[name='resultDamage']")[0].value;
-          let damageNames = Array.from(pickedChoices).map(e => e.dataset.typeName).join("/")
+          let damageNames = Array.from(pickedChoices).map(e => e.dataset.label).join("/")
 
 		  // Setting the value this way lets us handle typeless damage easily.
+		  let rd = actor.data.data.defense;
           let worst = Math.max(rd["bash"].value, rd["slash"].value, rd["stab"].value, rd["fire"].value, rd["cold"].value, rd["shock"].value);
           
           for (let i of pickedChoices) {
-            worst = Math.min(worst, i.dataset.result);
+            worst = Math.min(worst, rd[i.dataset.type].value);
           }
         
           let final = Math.max(damageBase - worst, 0);
@@ -123,7 +122,7 @@ export function calculateDamage(actor, targets) {
         } else {
           let pickedChoices = html.find("input[name='resultPick']:checked");
           let damageBase = html.find("input[name='resultDamage']")[0].value;
-          let damageNames = Array.from(pickedChoices).map(e => e.dataset.typeName).join("/")
+          let damageNames = Array.from(pickedChoices).map(e => e.dataset.label).join("/")
           
           let chatText = {
             content: `${actor.name} deals ${damageBase} ${damageNames} damage.`
@@ -133,15 +132,16 @@ export function calculateDamage(actor, targets) {
 
           for (let i of targets) {
 		    // Setting the value this way lets us handle typeless damage easily.
+		    let rd = i.actor.data.data.defense
             let worst = Math.max(rd["bash"].value, rd["slash"].value, rd["stab"].value, rd["fire"].value, rd["cold"].value, rd["shock"].value);
           
             for (let j of pickedChoices) {
-              worst = Math.min(worst, j.dataset.result);
+              worst = Math.min(worst, rd[j.dataset.type].value);
             }
         
             let final = Math.max(damageBase - worst, 0);
 
-            chatText.content += `<li>${i.name} took ${final} damage.</li>`
+            chatText.content += `<li>${i.actor.name} took ${final} damage.</li>`
           }
           
           chatText.content += "</ul>"
