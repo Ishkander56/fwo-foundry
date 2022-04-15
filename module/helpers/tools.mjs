@@ -1,4 +1,4 @@
-export function rollCheck(actor) {
+export function rollCheck(actor, targets) {
   if (!actor) {
     ui.notifications.warn("Select an actor.");
     return
@@ -8,7 +8,7 @@ export function rollCheck(actor) {
     content: `
       <form class="flexcol">
         <div class="form-group">
-          <select id="target">
+          <select id="score">
             <option value="str">Strength</option>
             <option value="agi">Agility</option>
             <option value="sen">Sense</option>
@@ -37,29 +37,40 @@ export function rollCheck(actor) {
         </div>
       </form>
     `,
-    //select element type
     buttons: {
       yes: {
         icon: '<i class="fas fa-dice-d6"></i>',
         label: 'Roll',
         callback: async (html) => {
-          let target = html.find('#target')
-          let targetvalue = target.val();
-          let targetnumber = actor.getRollData()[targetvalue];
+          let score = html.find('#score')
+          let scorevalue = score.val();
+          let goal = actor.getRollData()[scorevalue];
           let modifier = html.find('#modifier').val();
+          let localizedname = game.i18n.localize(CONFIG.statStrings[scorevalue]);
+          let finalflavor = `[${localizedname}]`
+          
+          if (targets.length == 1) {
+            finalflavor = `[${localizedname}] vs. ${targets[0].name}`;
+          } else if (targets.length > 1) {
+            finalflavor = `[${localizedname}] vs. ${targets.map(e => e.name).join(", ")}`;
+          }
                       
-          let roll = new Roll(`3d6ms<(${targetnumber}+${modifier})`);
-          roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: targetvalue
-          });
+          postRollMessage(actor, finalflavor, goal, modifier);
         },
       },
     }
   }).render(true);
 }
 
-export function calculateDamage(actor) {
+function postRollMessage(actor, flavor, goal, modifier) {
+  let roll = new Roll(`3d6ms<(${goal}+${modifier})`);
+  roll.toMessage({
+    speaker: ChatMessage.getSpeaker({ actor: actor }),
+    flavor: flavor
+  });
+}
+
+export function calculateDamage(actor, targets) {
   if (!actor) {
     ui.notifications.warn("Select an actor.");
     return
@@ -68,19 +79,19 @@ export function calculateDamage(actor) {
   var rd = actor.data.data.defense;
 
   const values = [
-	{"name": "{{localize 'FWO.DefBash'}}", "value": rd["bash"].value},
-	{"name": "{{localize 'FWO.DefSlash'}}", "value": rd["slash"].value},
-	{"name": "{{localize 'FWO.DefStab'}}", "value": rd["stab"].value},
-	{"name": "{{localize 'FWO.DefFire'}}", "value": rd["fire"].value},
-	{"name": "{{localize 'FWO.DefCold'}}", "value": rd["cold"].value},
-	{"name": "{{localize 'FWO.DefShock'}}", "value": rd["shock"].value},
-	{"name": "{{localize 'FWO.DefIgnore'}}", "value": 0}
+	{"name": game.i18n.localize("FWO.DefBash"), "value": rd["bash"].value},
+	{"name": game.i18n.localize("FWO.DefSlash"), "value": rd["slash"].value},
+	{"name": game.i18n.localize("FWO.DefStab"), "value": rd["stab"].value},
+	{"name": game.i18n.localize("FWO.DefFire"), "value": rd["fire"].value},
+	{"name": game.i18n.localize("FWO.DefCold"), "value": rd["cold"].value},
+	{"name": game.i18n.localize("FWO.DefShock"), "value": rd["shock"].value},
+	{"name": game.i18n.localize("FWO.DefIgnore"), "value": 0}
   ];
   const total = 0;
 
   let content = `<form><label>Damage</label><input type="number" name="resultDamage" data-result="damage" /><br/>`
   for(let r of values) {
-    content += `<label>${r.name}</label><input type="checkbox" name="resultPick" data-result="${r.value}" /><br/>`;
+    content += `<label>${r.name}</label><input type="checkbox" name="resultPick" data-type-name="${r.name}" data-result="${r.value}" /><br/>`;
   }
   content += "</div></form>";
 
@@ -90,25 +101,53 @@ export function calculateDamage(actor) {
     buttons: [{
       label: 'Calculate',
       callback: (html) => {
-        let pickedChoices = html.find("input[name='resultPick']:checked");
-        let damageBase = html.find("input[name='resultDamage']")[0].value;
+	    if (targets.length == 0) {
+          let pickedChoices = html.find("input[name='resultPick']:checked");
+          let damageBase = html.find("input[name='resultDamage']")[0].value;
+          let damageNames = Array.from(pickedChoices).map(e => e.dataset.typeName).join("/")
 
-		// Setting the value this way lets us handle typeless damage easily.
-        let worst = Math.max(rd["bash"].value, rd["slash"].value, rd["stab"].value, rd["fire"].value, rd["cold"].value, rd["shock"].value);
-
-        let damageNames = []
+		  // Setting the value this way lets us handle typeless damage easily.
+          let worst = Math.max(rd["bash"].value, rd["slash"].value, rd["stab"].value, rd["fire"].value, rd["cold"].value, rd["shock"].value);
           
-        for (let i of pickedChoices) {
-          worst = Math.min(worst, i.dataset.result);
-        }
+          for (let i of pickedChoices) {
+            worst = Math.min(worst, i.dataset.result);
+          }
         
-        let final = Math.max(damageBase - worst, 0);
+          let final = Math.max(damageBase - worst, 0);
 
-        let chatData = {
-          content: `${actor.data.name} took ${final} damage.`
-        };
+          let chatText = {
+            content: `${actor.name} took ${final} ${damageNames} damage.`
+          };
 
-        ChatMessage.create(chatData)
+          ChatMessage.create(chatText)
+        } else {
+          let pickedChoices = html.find("input[name='resultPick']:checked");
+          let damageBase = html.find("input[name='resultDamage']")[0].value;
+          let damageNames = Array.from(pickedChoices).map(e => e.dataset.typeName).join("/")
+          
+          let chatText = {
+            content: `${actor.name} deals ${damageBase} ${damageNames} damage.`
+          };
+          
+          chatText.content += "<ul>"
+
+          for (let i of targets) {
+		    // Setting the value this way lets us handle typeless damage easily.
+            let worst = Math.max(rd["bash"].value, rd["slash"].value, rd["stab"].value, rd["fire"].value, rd["cold"].value, rd["shock"].value);
+          
+            for (let j of pickedChoices) {
+              worst = Math.min(worst, j.dataset.result);
+            }
+        
+            let final = Math.max(damageBase - worst, 0);
+
+            chatText.content += `<li>${i.name} took ${final} damage.</li>`
+          }
+          
+          chatText.content += "</ul>"
+
+          ChatMessage.create(chatText)
+        }
       }
     }]
   }).render(true);

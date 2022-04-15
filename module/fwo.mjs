@@ -123,7 +123,7 @@ Hooks.on('getSceneControlButtons', (buttons) => {
     name: 'quickCheck',
     title: game.i18n.localize("FWO.QuickCheck"),
     onClick: () => {
-      FilledWithTools.rollCheck(canvas.tokens.controlled[0].actor)
+      FilledWithTools.rollCheck(canvas.tokens.controlled[0].actor, Array.from(game.user.targets))
     },
   },{
     button: true,
@@ -131,7 +131,7 @@ Hooks.on('getSceneControlButtons', (buttons) => {
     name: 'quickDamage',
     title: game.i18n.localize("FWO.QuickDamage"),
     onClick: () => {
-      FilledWithTools.calculateDamage(canvas.tokens.controlled[0].actor)
+      FilledWithTools.calculateDamage(canvas.tokens.controlled[0].actor, Array.from(game.user.targets))
     },
   });
 });
