@@ -4,34 +4,34 @@ export function rollCheck(actor, targets) {
     return
   }
   new Dialog({
-    title: 'Roll With Modifier',
+    title: game.i18n.localize("FWO.QuickCheck"),
     content: `
       <form class="flexcol">
         <div class="form-group">
           <select id="score">
-            <option value="str">Strength</option>
-            <option value="agi">Agility</option>
-            <option value="sen">Sense</option>
-            <option value="int">Intellect</option>
-            <option value="will">Will</option>
-            <option value="acc">Accuracy</option>
-            <option value="knife">Accuracy (Knife)</option>
-            <option value="sword">Accuracy (Sword)</option>
-            <option value="lance">Accuracy (Lance)</option>
-            <option value="axe">Accuracy (Axe)</option>
-            <option value="blunt">Accuracy (Blunt)</option>
-            <option value="whip">Accuracy (Whip)</option>
-            <option value="bow">Accuracy (Bow)</option>
-            <option value="hand">Accuracy (Hand)</option>
-            <option value="katana">Accuracy (Katana)</option>
-            <option value="gun">Accuracy (Gun)</option>
-            <option value="magic">Accuracy (Magic)</option>
-            <option value="eva">Evasion</option>
-            <option value="dodge">Dodge</option>
-            <option value="parry">Parry</option>
-            <option value="shield">Shield</option>
-            <option value="mov">Movement</option>
-            <option value="res">Resistance</option>
+            <option value="str">${game.i18n.localize("FWO.StrLong")}</option>
+            <option value="agi">${game.i18n.localize("FWO.AgiLong")}</option>
+            <option value="sen">${game.i18n.localize("FWO.SenLong")}</option>
+            <option value="int">${game.i18n.localize("FWO.IntLong")}</option>
+            <option value="will">${game.i18n.localize("FWO.WillLong")}</option>
+            <option value="acc">${game.i18n.localize("FWO.AccLong")}</option>
+            <option value="knife">${game.i18n.localize("FWO.AccKnifeLong")}</option>
+            <option value="sword">${game.i18n.localize("FWO.AccSwordLong")}</option>
+            <option value="lance">${game.i18n.localize("FWO.AccLanceLong")}</option>
+            <option value="axe">${game.i18n.localize("FWO.AccAxeLong")}</option>
+            <option value="blunt">${game.i18n.localize("FWO.AccBluntLong")}</option>
+            <option value="whip">${game.i18n.localize("FWO.AccWhipLong")}</option>
+            <option value="bow">${game.i18n.localize("FWO.AccBowLong")}</option>
+            <option value="hand">${game.i18n.localize("FWO.AccHandLong")}</option>
+            <option value="katana">${game.i18n.localize("FWO.AccKatanaLong")}</option>
+            <option value="gun">${game.i18n.localize("FWO.AccGunLong")}</option>
+            <option value="magic">${game.i18n.localize("FWO.AccMagicLong")}</option>
+            <option value="eva">${game.i18n.localize("FWO.EvaLong")}</option>
+            <option value="dodge">${game.i18n.localize("FWO.EvaDodge")}</option>
+            <option value="parry">${game.i18n.localize("FWO.EvaParry")}</option>
+            <option value="shield">${game.i18n.localize("FWO.EvaShield")}</option>
+            <option value="mov">${game.i18n.localize("FWO.MovLong")}</option>
+            <option value="res">${game.i18n.localize("FWO.ResLong")}</option>
           </select>
           <input id="modifier" type="number" value="0" />
         </div>
@@ -40,7 +40,7 @@ export function rollCheck(actor, targets) {
     buttons: {
       yes: {
         icon: '<i class="fas fa-dice-d6"></i>',
-        label: 'Roll',
+        label: game.i18n.localize("FWO.QuickCheck"),
         callback: async (html) => {
           let score = html.find('#score')
           let scorevalue = score.val();
@@ -49,10 +49,8 @@ export function rollCheck(actor, targets) {
           let localizedname = game.i18n.localize(CONFIG.statStrings[scorevalue]);
           let finalflavor = `[${localizedname}]`
           
-          if (targets.length == 1) {
-            finalflavor = `[${localizedname}] vs. ${targets[0].name}`;
-          } else if (targets.length > 1) {
-            finalflavor = `[${localizedname}] vs. ${targets.map(e => e.name).join(", ")}`;
+          if (targets.length >= 1) {
+            finalflavor += game.i18n.format("FWO.QuickCheckTargets", {targets: (targets.map(e => e.name).join(game.i18n.localize("FWO.QuickCheckTargetsJoiner")))});
           }
                       
           postRollMessage(actor, finalflavor, goal, modifier);
@@ -87,22 +85,22 @@ export function calculateDamage(actor, targets) {
   ];
   const total = 0;
 
-  let content = `<form><label>Damage</label><input type="number" name="resultDamage" data-result="damage" /><br/>`
+  let content = `<form><label>${game.i18n.localize("FWO.QuickDamageTotal")}</label><input type="number" name="resultDamage" data-result="damage" /><br/>`
   for(let r of values) {
     content += `<label>${r.label}</label><input type="checkbox" name="resultPick" data-label="${r.label}" data-type="${r.type}" /><br/>`;
   }
   content += "</div></form>";
 
   new Dialog({
-    title: 'Calculate Damage against Defenses',
+    title: game.i18n.localize("FWO.QuickDamage"),
     content: content,
     buttons: [{
-      label: 'Calculate',
+      label: game.i18n.localize("FWO.QuickDamage"),
       callback: (html) => {
 	    if (targets.length == 0) {
           let pickedChoices = html.find("input[name='resultPick']:checked");
           let damageBase = html.find("input[name='resultDamage']")[0].value;
-          let damageNames = Array.from(pickedChoices).map(e => e.dataset.label).join("/")
+          let damageNames = Array.from(pickedChoices).map(e => e.dataset.label).join(game.i18n.localize("FWO.QuickDamageTypesJoiner"))
 
 		  // Setting the value this way lets us handle typeless damage easily.
 		  let rd = actor.data.data.defense;
@@ -112,20 +110,20 @@ export function calculateDamage(actor, targets) {
             worst = Math.min(worst, rd[i.dataset.type].value);
           }
         
-          let final = Math.max(damageBase - worst, 0);
+          let damageFinal = Math.max(damageBase - worst, 0);
 
           let chatText = {
-            content: `${actor.name} took ${final} ${damageNames} damage.`
+            content: game.i18n.format("FWO.QuickDamageTakenSelect", {name: actor.name, final: damageFinal, types: damageNames})
           };
 
           ChatMessage.create(chatText)
         } else {
           let pickedChoices = html.find("input[name='resultPick']:checked");
           let damageBase = html.find("input[name='resultDamage']")[0].value;
-          let damageNames = Array.from(pickedChoices).map(e => e.dataset.label).join("/")
+          let damageNames = Array.from(pickedChoices).map(e => e.dataset.label).join(game.i18n.localize("FWO.QuickDamageTypesJoiner"))
           
           let chatText = {
-            content: `${actor.name} deals ${damageBase} ${damageNames} damage.`
+            content: game.i18n.format("FWO.QuickDamageDealt", {name: actor.name, base: damageBase, types: damageNames})
           };
           
           chatText.content += "<ul>"
@@ -139,9 +137,9 @@ export function calculateDamage(actor, targets) {
               worst = Math.min(worst, rd[j.dataset.type].value);
             }
         
-            let final = Math.max(damageBase - worst, 0);
+            let damageFinal = Math.max(damageBase - worst, 0);
 
-            chatText.content += `<li>${i.actor.name} took ${final} damage.</li>`
+            chatText.content += `<li>${game.i18n.format("FWO.QuickDamageTakenList", {name: i.actor.name, final: damageFinal})}</li>`
           }
           
           chatText.content += "</ul>"

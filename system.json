@@ -2,7 +2,7 @@
 	"name": "fwo-foundry",
 	"title": "Filled With Online",
 	"description": "The Filled With Online system for FoundryVTT!",
-	"version": "0.6.2",
+	"version": "0.6.3",
 	"minimumCoreVersion": "0.8.6",
 	"compatibleCoreVersion": "9",
 	"authors": ["Ishkander"],
