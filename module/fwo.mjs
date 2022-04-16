@@ -22,6 +22,11 @@ Hooks.once('init', async function() {
     FilledWithItem,
     rollItemMacro
   };
+  
+  let src = 'systems/fwo-foundry/img/fwo.webp'
+
+  $('#logo').attr('src', src)
+  $('#logo').attr('height', '10px')
 
   // Add custom constants for configuration.
   CONFIG.FWO = FWO;
@@ -99,6 +104,8 @@ Hooks.once('init', async function() {
     "shield": "FWO.EvaShield",
     "parry": "FWO.EvaParry"
   }
+  
+  //Roll.CHAT_TEMPLATE = "systems/fwo-foundry/templates/chat/roll.html";
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -189,17 +196,6 @@ Handlebars.registerHelper('times', function(times, options) {
     outStr += options.fn();
   }
   return outStr
-});
-
-/* -------------------------------------------- */
-/*  Init Hook                                   */
-/* -------------------------------------------- */
-
-Hooks.once('init', async function () {
-  let src = 'systems/fwo-foundry/img/fwo.webp'
-
-  $('#logo').attr('src', src)
-  $('#logo').attr('height', '10px')
 });
 
 /* -------------------------------------------- */
