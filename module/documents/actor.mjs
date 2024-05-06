@@ -123,7 +123,7 @@ export class FilledWithActor extends Actor {
 		const data = actorData.data
 
 		for (let [key, defense] of Object.entries(data.defense)) {
-			defense.value = (defense.armor + defense.trait + defense.item + defense.misc + defense.temp)
+			defense.value = (defense.armor + defense.skill +  defense.trait + defense.item + defense.misc + defense.temp)
 		}
 	}
 
