@@ -48,7 +48,7 @@ export class FilledWithItem extends Item {
 		  speaker: speaker,
 		  rollMode: rollMode,
 		  flavor: label,
-		  content: (item.data.summary ?? '').replace(/@slv/gi, item.data.skillLevel) // skill level hack for damage
+		  content: (item.data.summary ?? '').replace(/(@slv?\b)/gi, item.data.skillLevel) // skill level hack for damage
 		});
 	}
     // Otherwise, create a roll and send a chat message from it.
@@ -57,7 +57,7 @@ export class FilledWithItem extends Item {
       const rollData = this.getRollData();
 
       // Invoke the roll and submit it to chat.
-      const roll = new Roll(rollData.item.formula.replace(/@slv/gi, item.data.skillLevel), rollData).roll(); // another skill level hack
+      const roll = new Roll(rollData.item.formula.replace(/(@slv?\b)/gi, item.data.skillLevel), rollData).roll(); // another skill level hack
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,
