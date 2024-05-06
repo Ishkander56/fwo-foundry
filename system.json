@@ -4,8 +4,13 @@
 	"description": "The Filled With Online system for FoundryVTT!",
 	"version": "0.6.3",
 	"minimumCoreVersion": "0.8.6",
-	"compatibleCoreVersion": "9",
-	"authors": ["Ishkander"],
+	"compatibleCoreVersion": "11",
+	"authors": [
+		{
+			"name": "Ishkander",
+			"discord": "ishkander"
+		}
+	],
 	"esmodules": ["module/fwo.mjs"],
 	"styles": ["css/fwo.css"],
 	"scripts": [],
@@ -18,7 +23,7 @@
 		},
 		{
 			"lang": "ja",
-			"name": "日本語",
+			"name": "æ—¥æœ¬èªž",
 			"path": "lang/ja.json"
 		}
 	],
