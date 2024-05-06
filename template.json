@@ -148,20 +148,23 @@
 				"defense": {
 					"bash": {
 						"armor": 0, 
+						"skill": 0,
 						"trait": 0,
 						"item": 0,
 						"misc": 0,
 						"temp": 0
 					},
 					"slash": {
-						"armor": 0, 
+						"armor": 0,
+						"skill": 0, 
 						"trait": 0,
 						"item": 0,
 						"misc": 0,
 						"temp": 0
 					},
 					"stab": {
-						"armor": 0, 
+						"armor": 0,
+						"skill": 0, 
 						"trait": 0,
 						"item": 0,
 						"misc": 0,
@@ -169,6 +172,7 @@
 					},
 					"fire": {
 						"armor": 0, 
+						"skill": 0,
 						"trait": 0,
 						"item": 0,
 						"misc": 0,
@@ -176,6 +180,7 @@
 					},
 					"cold": {
 						"armor": 0, 
+						"skill": 0,
 						"trait": 0,
 						"item": 0,
 						"misc": 0,
@@ -183,6 +188,7 @@
 					},
 					"shock": {
 						"armor": 0, 
+						"skill": 0,
 						"trait": 0,
 						"item": 0,
 						"misc": 0,
